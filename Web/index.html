@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca de Gravações</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🔎 Busca e Player de Gravações</h1>
+    </header>
+
+    <main>
+      <section class="controls">
+        <label>Telefones (vírgula):</label>
+        <input id="telefones" placeholder="31999998888, 31922223333" />
+
+        <label>Ou selecione um arquivo Excel:</label>
+        <input id="arquivoExcel" type="file" accept=".xlsx" />
+
+        <button id="btnBuscar">▶️ Buscar</button>
+      </section>
+
+      <section class="results">
+        <h2>Resultados</h2>
+        <div id="listaResultados" class="lista"></div>
+      </section>
+
+      <section class="player-area">
+        <audio id="audioPlayer" controls></audio>
+      </section>
+
+      <section class="logs">
+        <h3>Logs</h3>
+        <div id="logsBox" class="logbox"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
