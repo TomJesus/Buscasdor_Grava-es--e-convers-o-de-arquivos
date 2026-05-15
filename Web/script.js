@@ -24,7 +24,7 @@ btnBuscar.addEventListener('click', async () => {
     // chamar API.buscar (retorna lista de itens)
     const resultados = await window.pywebview.api.buscar(telefones, arquivo);
     renderResultados(resultados || []);
-    addLog(`✅ Busca retornou ${ (resultados || []).length } itens.`);
+    addLog(`Busca retornou ${ (resultados || []).length } itens.`);
   } catch (err) {
     addLog(`[ERRO] ${err}`);
   }
@@ -51,7 +51,7 @@ function renderResultados(items){
     btnPlay.className = 'btn play';
     btnPlay.textContent = '▶️ Ouvir';
     btnPlay.onclick = async () => {
-    //addLog(`▶ Preparando reprodução: ${it.caminho_original}`);
+    //addLog(`Preparando reprodução: ${it.caminho_original}`);
     try {
     const audioUrl = await window.pywebview.api.preparar_play(it.caminho_original);
     if(audioUrl){
@@ -69,7 +69,7 @@ function renderResultados(items){
 
       if (playPromise !== undefined) {
         playPromise.then(() => {
-          addLog('▶ Reproduzindo áudio...');
+          addLog('Reproduzindo áudio...');
         }).catch(e => {
           addLog(`[ERRO] Falha ao reproduzir: ${e.message}`);
         });
@@ -89,19 +89,19 @@ audioPlayer.addEventListener('error', function(e) {
 });
 
 audioPlayer.addEventListener('canplay', function() {
-  //addLog('✅ Áudio carregado e pronto para reprodução');
+  //addLog('Áudio carregado e pronto para reprodução');
 });
     const btnSave = document.createElement('button');
     btnSave.className = 'btn save';
     btnSave.textContent = '💾 Salvar';
     btnSave.onclick = async () => {
-      addLog(`💾 Salvando: ${it.caminho_original}`);
+      addLog(`Salvando: ${it.caminho_original}`);
       const nomeSugerido = `${it.instalacao} - ${it.nome} - ${it.idx}.${it.formato === 'gsm' ? 'mp3' : it.formato}`;
       const salvo = await window.pywebview.api.salvar(it.caminho_original, nomeSugerido);
       if(salvo){
-        addLog(`💾 Salvo em: ${salvo}`);
+        addLog(`Salvo em: ${salvo}`);
       } else {
-        addLog('⚠ Salvamento cancelado/erro.');
+        addLog('Salvamento cancelado/erro.');
       }
     };
 

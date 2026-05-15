@@ -25,10 +25,10 @@ MAX_THREADS = 8
 def get_connection():
     raw_conn = pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};"
-        "SERVER=172.00.0.00;"
+        "SERVER=172.16.0.33;"
         "DATABASE=Captacao;"
-        "UID= nome.nome;"
-        "PWD=key;"
+        "UID=Paulo.cruz;"
+        "PWD=Fmp1234@;"
         "TrustServerCertificate=yes;"
     )
     engine = create_engine("mssql+pyodbc://", creator=lambda: raw_conn)
@@ -78,7 +78,7 @@ def carregar_telefones(caminho_excel=None, telefone_manual=None):
 # === CONSULTA NO BANCO ==========================================
 def executar_busca_sem_salvar(telefones_info, log_callback=None):
     engine = get_connection()
-    if log_callback: log_callback("⏳ Iniciando busca no banco...")
+    if log_callback: log_callback("Iniciando busca no banco...")
 
     telefones = [t[0].strip() for t in telefones_info if str(t[0]).strip()]
     telefones = list(set(telefones))
