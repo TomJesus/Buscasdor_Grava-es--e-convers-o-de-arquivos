@@ -25,10 +25,10 @@ MAX_THREADS = 8
 def get_connection():
     raw_conn = pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};"
-        "SERVER=172.16.0.33;"
-        "DATABASE=Captacao;"
-        "UID=Paulo.cruz;"
-        "PWD=Fmp1234@;"
+        "SERVER=******;"
+        "DATABASE=*****;"
+        "UID=****;"
+        "PWD=***;"
         "TrustServerCertificate=yes;"
     )
     engine = create_engine("mssql+pyodbc://", creator=lambda: raw_conn)
